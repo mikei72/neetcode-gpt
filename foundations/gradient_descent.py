@@ -9,7 +9,6 @@ class Solution:
         i = 0
 
         while i < iterations:
-            deriv = 2 * init
-            init = init - learning_rate * deriv
+            init = init - learning_rate * 2 * init
             i += 1
         return round(init, 5)
