@@ -5,11 +5,11 @@ class Solution:
         # Update rule:        x = x - learning_rate * f'(x)
         # Round final answer to 5 decimal places
         # pass
-
+        
         i = 0
-        factor = 1 - 2 * learning_rate
 
         while i < iterations:
-            init = init * factor
+            deriv = 2 * init
+            init = init - learning_rate * deriv
             i += 1
         return round(init, 5)
