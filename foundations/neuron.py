@@ -15,8 +15,6 @@ class Solution:
         # return round(your_answer, 5)
         z = np.dot(x, w) + b
         if activation == "sigmoid":
-            return np.round(1.0 / (1.0 + np.exp(-z)), 5)
-        elif activation == "relu":
-            return np.round(max(0.0, z), 5)
+            return np.round(1 / (1 + np.exp(-z)), 5)
         else:
-            return None
+            return np.round(np.maximum(0, z), 5)
