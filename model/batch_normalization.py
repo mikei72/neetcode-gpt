@@ -17,8 +17,6 @@ class Solution:
         running_mean = np.array(running_mean, dtype=np.float64)
         running_var = np.array(running_var, dtype=np.float64)
 
-        eps = 1e-5
-
         if training:
             miu = np.mean(x, axis=0)
             theta = np.var(x, axis=0)
