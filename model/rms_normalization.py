@@ -14,4 +14,4 @@ class Solution:
         x2 = x / rms
         output = gamma * x2
 
-        return np.round(output.tolist(), 4)
+        return np.round(output, 4)
