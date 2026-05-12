@@ -10,7 +10,7 @@ class Solution:
         x = np.array(x)
         gamma = np.array(gamma)
 
-        rms = np.sqrt(np.mean(np.square(x)) + eps)
+        rms = np.sqrt(np.mean(x ** 2) + eps)
         x2 = x / rms
         output = gamma * x2
 
