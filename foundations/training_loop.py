@@ -25,7 +25,7 @@ class Solution:
             dw = (2 / n) * (X.T @ error)
             db = (2 / n) * np.sum(error)
 
-            w = w - lr * dw
-            b = b - lr * db
+            w -= lr * dw
+            b -= lr * db
         
         return (np.round(w, 5), round(b, 5))
