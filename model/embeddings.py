@@ -10,5 +10,5 @@ class Solution:
         # return np.round(your_answer, 5)
         res = []
         for i in token_ids:
-            res.append(np.round(embeddings[i], 5))
-        return res
+            res.append(embeddings[i])
+        return np.round(res, 5)
