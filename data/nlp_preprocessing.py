@@ -11,17 +11,22 @@ class Solution:
         # 4. Pad shorter sequences with 0s using nn.utils.rnn.pad_sequence(tensors, batch_first=True)
         combined = positive + negative
 
-        vocab = []
+        vocab = set()
         for s in combined:
-            vocab.extend(s.split())
-        vocab.sort()
+            for w in s.split():
+                vocab.add(w)
+        vocab = sorted(vocab)
 
-        word_to_id = {}
+        """word_to_id = {}
         count = 1
         for word in vocab:
             if word not in word_to_id:
                 word_to_id[word] = count
-                count += 1
+                count += 1"""
+
+        word_to_id = {}
+        for i, word in enumerate(vocab):
+            word_to_id[word] = i + 1
         
         encode = []
         for s in combined:
