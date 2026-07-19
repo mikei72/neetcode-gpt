@@ -13,8 +13,7 @@ class Solution:
 
         vocab = []
         for s in combined:
-            for w in s.split():
-                vocab.append(w)
+            vocab.extend(s.split())
         vocab.sort()
 
         word_to_id = {}
