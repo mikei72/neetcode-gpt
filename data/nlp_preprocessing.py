@@ -10,9 +10,29 @@ class Solution:
         # 3. Combine positive + negative into one list of tensors
         # 4. Pad shorter sequences with 0s using nn.utils.rnn.pad_sequence(tensors, batch_first=True)
         combined = positive + negative
-        vocab = sorted({word for sentence in combined for word in sentence.split()})
-        word_to_id = {word: i + 1 for i, word in enumerate(vocab)}
 
-        encode = [torch.tensor([word_to_id[w] for w in s.split()]) for s in combined]
+        vocab = []
+        for s in combined:
+            for w in s.split():
+                vocab.append(w)
+        vocab.sort()
 
+        word_to_id = {}
+        count = 1
+        for word in vocab:
+            if word not in word_to_id:
+                word_to_id[word] = count
+                count += 1
+        
+        encode = []
+        for s in combined:
+            enc = []
+            for w in s.split():
+                enc.append(word_to_id[w])
+            encode.append(enc)
+        encode = [torch.Tensor(s) for s in encode]
+        
         return nn.utils.rnn.pad_sequence(encode, batch_first=True)
+
+        
+
