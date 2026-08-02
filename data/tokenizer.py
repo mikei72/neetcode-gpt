@@ -25,7 +25,8 @@ class Solution:
             if not pairs:
                 break
             
-            best = sorted(p for p, c in pairs.items() if c == max(pairs.values()))[0]
+            best_count = max(pairs.values())
+            best = sorted(p for p, c in pairs.items() if c == best_count)[0]
 
             merges.append([best[0], best[1]])
 
